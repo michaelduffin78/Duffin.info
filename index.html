@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Duffin — National Security Professional</title>
+<meta name="description" content="Michael Duffin: 12 years at the U.S. Department of State specializing in counterterrorism, international security policy, and public affairs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101823;
+    --ink-2:#16202c;
+    --paper:#ece8de;
+    --paper-dim:#d9d4c6;
+    --brass:#b08d4f;
+    --brass-bright:#cba765;
+    --slate:#8e97a3;
+    --text-on-paper:#1a1f26;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+  }
+
+  /* ---------- Layout shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    min-height:100vh;
+  }
+
+  /* ---------- Case-file tab navigation ---------- */
+  .tabs{
+    position:sticky;
+    top:0;
+    height:100vh;
+    background:var(--ink-2);
+    border-right:1px solid rgba(176,141,79,0.25);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:32px;
+    gap:6px;
+    z-index:50;
+  }
+  .tabs .mark{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.12em;
+    color:var(--brass);
+    writing-mode:vertical-rl;
+    margin-bottom:40px;
+    opacity:0.8;
+  }
+  .tab{
+    writing-mode:vertical-rl;
+    transform:rotate(180deg);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-decoration:none;
+    color:var(--slate);
+    padding:14px 10px;
+    border-left:2px solid transparent;
+    transition:color .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .tab:hover, .tab:focus-visible{
+    color:var(--brass-bright);
+    border-left-color:var(--brass);
+    background:rgba(176,141,79,0.08);
+    outline:none;
+  }
+  .tab .num{ color:var(--brass); margin-right:8px; }
+
+  /* ---------- Main content ---------- */
+  main{ max-width:980px; margin:0 auto; padding:0 32px; }
+
+  section{ padding:96px 0; border-bottom:1px solid rgba(176,141,79,0.18); }
+  section:last-of-type{ border-bottom:none; }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.18em;
+    color:var(--brass);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:22px;
+    text-transform:uppercase;
+  }
+  .eyebrow::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(to right, rgba(176,141,79,0.5), transparent);
+  }
+
+  h1,h2,h3{ font-family:var(--serif); font-weight:600; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding-top:110px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+    border-bottom:1px solid rgba(176,141,79,0.18);
+  }
+  .hero-eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.2em;
+    color:var(--brass);
+    text-transform:uppercase;
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 4.6vw, 3.6rem);
+    line-height:1.06;
+    color:var(--paper);
+    margin-bottom:18px;
+    letter-spacing:-0.01em;
+  }
+  .hero .role{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.35rem;
+    color:var(--brass-bright);
+    margin-bottom:28px;
+  }
+  .hero p.lede{
+    font-size:1.05rem;
+    color:#c7cbd2;
+    max-width:46ch;
+    margin-bottom:36px;
+  }
+  .hero-cta{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:14px 24px;
+    border:1px solid var(--brass);
+    color:var(--brass-bright);
+    transition:background .2s ease, color .2s ease;
+    display:inline-block;
+  }
+  .btn.solid{
+    background:var(--brass);
+    color:var(--ink);
+  }
+  .btn:hover{
+    background:var(--brass);
+    color:var(--ink);
+  }
+
+  .hero-photo{
+    position:relative;
+  }
+  .id-frame{
+    position:relative;
+    background:var(--paper);
+    padding:14px 14px 46px 14px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .id-frame img{
+    display:block;
+    width:100%;
+    height:auto;
+    filter:grayscale(12%) contrast(1.03);
+  }
+  .id-frame::before, .id-frame::after,
+  .id-frame .corner-tl, .id-frame .corner-br{
+    content:"";
+    position:absolute;
+    width:18px; height:18px;
+    border-color:var(--brass);
+  }
+  .id-frame .corner-tl{ top:-1px; left:-1px; border-top:3px solid var(--brass); border-left:3px solid var(--brass); }
+  .id-frame .corner-br{ bottom:-1px; right:-1px; border-bottom:3px solid var(--brass); border-right:3px solid var(--brass); }
+  .id-caption{
+    position:absolute;
+    bottom:14px; left:14px; right:14px;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.1em;
+    color:#6b6455;
+    display:flex;
+    justify-content:space-between;
+  }
+
+  /* ---------- Bio ---------- */
+  .bio-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+  }
+  .bio-grid p{ color:#c7cbd2; margin-bottom:18px; font-size:1rem; }
+  .bio-grid .lead-text{
+    font-family:var(--serif);
+    font-size:1.3rem;
+    line-height:1.5;
+    color:var(--paper);
+  }
+  .stat-list{ margin-top:8px; }
+  .stat{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-top:1px solid rgba(176,141,79,0.2);
+    font-family:var(--mono);
+    font-size:13px;
+  }
+  .stat:last-child{ border-bottom:1px solid rgba(176,141,79,0.2); }
+  .stat .label{ color:var(--slate); letter-spacing:0.06em; }
+  .stat .value{ color:var(--brass-bright); text-align:right; }
+
+  /* ---------- Career timeline ---------- */
+  .role-entry{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:32px;
+    padding:32px 0;
+    border-top:1px solid rgba(176,141,79,0.18);
+  }
+  .role-entry:last-child{ border-bottom:1px solid rgba(176,141,79,0.18); }
+  .role-dates{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--brass);
+    letter-spacing:0.05em;
+    padding-top:4px;
+  }
+  .role-entry h3{
+    font-size:1.25rem;
+    color:var(--paper);
+    margin-bottom:4px;
+  }
+  .role-org{
+    font-family:var(--sans);
+    font-size:0.9rem;
+    color:var(--brass-bright);
+    margin-bottom:14px;
+    font-weight:500;
+  }
+  .role-entry ul{
+    list-style:none;
+    color:#c7cbd2;
+    font-size:0.95rem;
+  }
+  .role-entry li{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:8px;
+  }
+  .role-entry li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color:var(--brass);
+  }
+
+  /* ---------- Media ---------- */
+  .media-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:20px;
+    margin-bottom:40px;
+  }
+  .media-item{
+    position:relative;
+    overflow:hidden;
+    background:var(--ink-2);
+  }
+  .media-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:grayscale(20%);
+    transition:filter .3s ease, transform .4s ease;
+  }
+  .media-item:hover img{
+    filter:grayscale(0%);
+    transform:scale(1.03);
+  }
+  .media-item .cap{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:18px 20px;
+    background:linear-gradient(to top, rgba(16,24,35,0.92), transparent);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--brass-bright);
+    text-transform:uppercase;
+  }
+  .media-item.tall{ grid-row:span 2; min-height:420px; }
+  .media-item.short{ min-height:200px; }
+
+  .press-list{
+    display:grid;
+    gap:0;
+  }
+  .press-item{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:24px;
+    padding:16px 0;
+    border-top:1px solid rgba(176,141,79,0.15);
+    font-size:0.92rem;
+  }
+  .press-item:last-child{ border-bottom:1px solid rgba(176,141,79,0.15); }
+  .press-outlet{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--brass);
+    letter-spacing:0.06em;
+    padding-top:2px;
+  }
+  .press-item span{ color:#c7cbd2; }
+
+  /* ---------- Contact ---------- */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  .contact-wrap .lead-text{
+    font-family:var(--serif);
+    font-size:1.6rem;
+    line-height:1.4;
+    color:var(--paper);
+  }
+  .contact-list{ font-family:var(--mono); font-size:14px; }
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 0;
+    border-top:1px solid rgba(176,141,79,0.2);
+  }
+  .contact-row:last-child{ border-bottom:1px solid rgba(176,141,79,0.2); }
+  .contact-row .label{ color:var(--slate); letter-spacing:0.08em; }
+  .contact-row a{ color:var(--brass-bright); text-decoration:none; }
+  .contact-row a:hover{ text-decoration:underline; }
+
+  footer{
+    padding:36px 0 60px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--slate);
+    letter-spacing:0.06em;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    .shell{ grid-template-columns:1fr; }
+    .tabs{
+      position:sticky;
+      top:0;
+      height:auto;
+      flex-direction:row;
+      padding:14px 16px;
+      overflow-x:auto;
+      border-right:none;
+      border-bottom:1px solid rgba(176,141,79,0.25);
+    }
+    .tabs .mark{ display:none; }
+    .tab{
+      writing-mode:horizontal-tb;
+      transform:none;
+      border-left:none;
+      border-bottom:2px solid transparent;
+      white-space:nowrap;
+      padding:8px 12px;
+    }
+    .tab:hover, .tab:focus-visible{ border-bottom-color:var(--brass); border-left-color:transparent; }
+    main{ padding:0 20px; }
+    .hero{ grid-template-columns:1fr; padding-top:56px; gap:36px; }
+    .hero-photo{ max-width:320px; }
+    .bio-grid{ grid-template-columns:1fr; gap:30px; }
+    .role-entry{ grid-template-columns:1fr; gap:8px; }
+    .media-grid{ grid-template-columns:1fr; }
+    .media-item.tall{ min-height:280px; }
+    .press-item{ grid-template-columns:100px 1fr; }
+    .contact-wrap{ grid-template-columns:1fr; gap:36px; }
+    section{ padding:60px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <nav class="tabs" aria-label="Section navigation">
+    <span class="mark">FILE&nbsp;NO.&nbsp;001</span>
+    <a class="tab" href="#bio"><span class="num">01</span>BIO</a>
+    <a class="tab" href="#career"><span class="num">02</span>CAREER</a>
+    <a class="tab" href="#media"><span class="num">03</span>MEDIA</a>
+    <a class="tab" href="#contact"><span class="num">04</span>CONTACT</a>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div>
+        <div class="hero-eyebrow">Washington, D.C.</div>
+        <h1>Michael Duffin</h1>
+        <div class="role">National Security Professional</div>
+        <p class="lede">Twelve years at the U.S. Department of State building programs that prevent terrorism, advising governments across three continents, and translating complex threats into clear policy and public understanding.</p>
+        <div class="hero-cta">
+          <a class="btn solid" href="#career">View Career →</a>
+          <a class="btn" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="id-frame">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <img src="images/headshot.jpg" alt="Portrait of Michael Duffin">
+          <div class="id-caption"><span>M. DUFFIN</span><span>DOS · 2013–2025</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIO -->
+    <section id="bio">
+      <div class="eyebrow">01 — Biography</div>
+      <div class="bio-grid">
+        <div>
+          <p class="lead-text">Michael Duffin spent over a decade at the State Department's Bureau of Counterterrorism, designing and leading programs to prevent radicalization and violent extremism around the world.</p>
+          <p>His work took him to 25 countries, where he built lasting partnerships with governments, civil society organizations, and international bodies including the United Nations and the OSCE. He advised national and local officials across Southeast Asia — including in the Philippines, Indonesia, and Malaysia — on deradicalization and the rehabilitation of foreign terrorist fighters and their families.</p>
+          <p>For a decade, he led the growth of the State Department's Strong Cities Network, a coalition of mayors and local leaders spanning the Obama, Trump, and Biden administrations, working across ideological lines to keep communities safe.</p>
+        </div>
+        <div>
+          <p>Earlier in his career, Duffin served as a Presidential Management Fellow, drafting policy on Pakistan, contributing to the U.S. Trafficking in Persons Report, and monitoring international exchange programs. He has published research on far-right extremism in Europe for West Point's Counterterrorism Center, and has written and spoken publicly on terrorism, extremism, and national security for outlets including MSNBC, NPR, and the Baltimore Sun.</p>
+          <p>He holds master's degrees in international public policy, public diplomacy, and journalism, and began his career as a working journalist with bylines in the Chicago Tribune and the Associated Press.</p>
+          <div class="stat-list">
+            <div class="stat"><span class="label">Years in Government</span><span class="value">12</span></div>
+            <div class="stat"><span class="label">Countries Engaged</span><span class="value">25+</span></div>
+            <div class="stat"><span class="label">Active Clearance</span><span class="value">TS/SCI</span></div>
+            <div class="stat"><span class="label">Graduate Degrees</span><span class="value">3</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section id="career">
+      <div class="eyebrow">02 — Career</div>
+
+      <div class="role-entry">
+        <div class="role-dates">2016 – 2025</div>
+        <div>
+          <h3>Senior Policy Advisor</h3>
+          <div class="role-org">Office of Countering Violent Extremism, Bureau of Counterterrorism, U.S. Department of State</div>
+          <ul>
+            <li>Led U.S. government initiatives to prevent terrorism, working with foreign governments, international organizations, and civil society partners.</li>
+            <li>Built extensive partnerships across the Philippines, Indonesia, and Malaysia, advising on deradicalization and the reintegration of foreign terrorist fighters and their families; coordinated closely with U.S. embassies to align programming with country-team priorities.</li>
+            <li>Designed, implemented, and evaluated counter-radicalization programs, including monitoring and evaluation efforts across Southeast Asia.</li>
+            <li>Led intergovernmental engagement with mayors and municipal leaders through the U.S. Conference of Mayors and National League of Cities.</li>
+            <li>Represented the United States at the United Nations and the OSCE on counterterrorism issues.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-entry">
+        <div class="role-dates">2015 – 2016</div>
+        <div>
+          <h3>Public Diplomacy Advisor</h3>
+          <div class="role-org">Office of Public Diplomacy, Bureau of European and Eurasian Affairs, U.S. Department of State</div>
+          <ul>
+            <li>Coordinated interagency strategy on counterterrorism across U.S. government agencies and international partners.</li>
+            <li>Led interagency working groups and organized public diplomacy forums.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-entry">
+        <div class="role-dates">2013 – 2015</div>
+        <div>
+          <h3>Presidential Management Fellow</h3>
+          <div class="role-org">U.S. Department of State</div>
+          <ul>
+            <li>Office of Pakistan Affairs — drafted policy papers and coordinated senior official meetings, including a Vice President–level meeting with Pakistan's prime minister at the UN.</li>
+            <li>Office to Monitor and Combat Trafficking in Persons — drafted country chapters for the 2014 Trafficking in Persons Report.</li>
+            <li>Bureau of Educational and Cultural Affairs — monitored J-1 exchange programs and conducted compliance site visits.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section id="media">
+      <div class="eyebrow">03 — Media &amp; Public Engagement</div>
+
+      <div class="media-grid">
+        <div class="media-item tall">
+          <img src="images/dalai-lama.jpg" alt="Michael Duffin in conversation with the Dalai Lama">
+          <div class="cap">International Engagement</div>
+        </div>
+        <div class="media-item short">
+          <img src="images/daily-show.jpg" alt="Michael Duffin being interviewed on a television set">
+          <div class="cap">Television Interview</div>
+        </div>
+        <div class="media-item short">
+          <img src="images/mayors.jpg" alt="Michael Duffin with international government officials">
+          <div class="cap">Strong Cities Network</div>
+        </div>
+      </div>
+
+      <div class="press-list">
+        <div class="press-item"><div class="press-outlet">TELEVISION</div><span>Featured guest discussing national security and counterterrorism policy on national television and radio programs.</span></div>
+        <div class="press-item"><div class="press-outlet">PUBLICATION</div><span>"Poland's Evolving Violent Far-Right Landscape," CTC Sentinel, West Point Counterterrorism Center.</span></div>
+        <div class="press-item"><div class="press-outlet">OP-EDS</div><span>Commentary on terrorism, extremism, and national security published in national and regional outlets.</span></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="eyebrow">04 — Contact</div>
+      <div class="contact-wrap">
+        <p class="lead-text">Open to conversations on counterterrorism, national security, and public affairs roles in Washington and beyond.</p>
+        <div class="contact-list">
+          <div class="contact-row"><span class="label">EMAIL</span><a href="mailto:michael_c_duffin@hotmail.com">michael_c_duffin@hotmail.com</a></div>
+          <div class="contact-row"><span class="label">PHONE</span><span>(773) 315-2883</span></div>
+          <div class="contact-row"><span class="label">LOCATION</span><span>Washington, D.C. Metro Area</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Michael Duffin
+    </footer>
+  </main>
+</div>
+
+</body>
+</html>
